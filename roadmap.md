@@ -1,0 +1,3 @@
+- [x] Apply the Aimé Leon Dore cinematic homepage and minimal navigation to Von Marloe.
+- [x] Restyle the catalog and shared site chrome while preserving all brand information.
+- [x] Verify navigation, catalog filters, video controls, and mobile layout.
