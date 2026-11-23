@@ -2,14 +2,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { Volume2, VolumeX, Play, Pause, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import hero from "@/assets/videos/hero.mp4.asset.json";
-import swanCream from "@/assets/brand/swan-cream.png.asset.json";
-import swanNavy from "@/assets/brand/swan-navy.png.asset.json";
+import hero from "@/assets/videos/hero.mp4";
+import swanCream from "@/assets/brand/swan-cream.png";
+import swanNavy from "@/assets/brand/swan-navy.png";
 import look1 from "@/assets/look1.jpg";
 import look2 from "@/assets/look2.jpg";
 import { Header, Footer } from "@/components/SiteChrome";
 import { ProductCard } from "@/components/ProductCard";
-import { BrandImage } from "@/components/BrandImage";
 import { products, brandPillars } from "@/lib/products";
 
 export const Route = createFileRoute("/")({
@@ -32,12 +31,12 @@ function Index() {
   const [playing, setPlaying] = useState(true);
   return (
     <div>
-      <section className="campaign-film relative min-h-[520px] w-full overflow-hidden bg-primary">
+      <section className="campaign-film relative min-h-[520px] w-full overflow-hidden">
         <Header overlay />
-        <video ref={video} src={hero.url} poster={look2} autoPlay muted={muted} loop playsInline onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} aria-label="Von Marloe From Still Water campaign film" className="absolute inset-0 h-full w-full object-cover" />
+        <video ref={video} src={hero} autoPlay muted={muted} loop playsInline onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} aria-label="Von Marloe From Still Water campaign film" className="absolute inset-0 h-full w-full object-cover" />
         <div className="film-shade pointer-events-none absolute inset-0" />
         <div className="absolute inset-x-0 bottom-14 z-10 flex flex-col items-center px-6 text-center text-on-media">
-          <BrandImage src={swanCream.url} alt="Von Marloe Swan Emblem" className="mb-4 h-10 w-auto" />
+          <img src={swanCream} alt="Von Marloe Swan Emblem" className="mb-4 h-10 w-auto" />
           <h1 className="text-xs uppercase">Von Marloe — Chapter 01: Metanoia</h1>
           <p className="mt-2 font-serif text-xl italic">"From Still Water"</p>
           <Button asChild variant="link" className="mt-3 h-auto p-0 text-[10px] font-normal uppercase text-on-media"><Link to="/shop">Explore the Chapter</Link></Button>
@@ -103,8 +102,8 @@ function Index() {
         </div>
       </section>
 
-      <section className="relative h-[78vh] min-h-[520px] overflow-hidden bg-primary">
-        <video src={hero.url} poster={look1} autoPlay muted loop playsInline className="absolute inset-0 h-full w-full scale-110 object-cover grayscale" />
+      <section className="relative h-[78vh] min-h-[520px] overflow-hidden">
+        <video src={hero} autoPlay muted loop playsInline className="absolute inset-0 h-full w-full scale-110 object-cover grayscale" />
         <div className="absolute inset-0 bg-overlay" />
         <div className="relative flex h-full flex-col items-center justify-center px-6 text-center text-on-media">
           <p className="eyebrow">The Von Marloe World — Los Angeles</p>
@@ -116,7 +115,7 @@ function Index() {
       </section>
 
       <section className="mx-auto flex max-w-[1400px] flex-col items-center px-6 py-20 text-center">
-        <BrandImage src={swanNavy.url} alt="Von Marloe Swan Emblem" className="h-12 w-auto" />
+        <img src={swanNavy} alt="Von Marloe Swan Emblem" className="h-12 w-auto" />
         <p className="eyebrow mt-5 text-accent">Foundation over Hype · Quality over Noise · Process over Spotlight</p>
       </section>
 

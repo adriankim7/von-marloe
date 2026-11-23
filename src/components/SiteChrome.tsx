@@ -3,11 +3,10 @@ import { Link } from "@tanstack/react-router";
 import { Menu, ArrowUpRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { BrandImage, WordmarkText } from "@/components/BrandImage";
-import wordmarkCream from "@/assets/brand/wordmark-cream.png.asset.json";
-import wordmarkNavy from "@/assets/brand/wordmark-navy.png.asset.json";
-import swanCream from "@/assets/brand/swan-cream.png.asset.json";
-import wordmarkStudiosCream from "@/assets/brand/wordmark-studios-cream.png.asset.json";
+import wordmarkCream from "@/assets/brand/wordmark-cream.png";
+import wordmarkNavy from "@/assets/brand/wordmark-navy.png";
+import swanCream from "@/assets/brand/swan-cream.png";
+import wordmarkStudiosCream from "@/assets/brand/wordmark-studios-cream.png";
 
 export function Header({ overlay = false }: { overlay?: boolean }) {
   const [open, setOpen] = useState(false);
@@ -22,7 +21,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
     return () => clearInterval(timer);
   }, []);
   const tone = overlay ? "text-on-media" : "text-foreground border-b";
-  const wordmark = overlay ? wordmarkCream.url : wordmarkNavy.url;
+  const wordmark = overlay ? wordmarkCream : wordmarkNavy;
   return (
     <header className={`${overlay ? "absolute" : "sticky bg-background"} top-0 z-30 w-full ${tone}`}>
       <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-3 md:px-6">
@@ -31,7 +30,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
             <Button variant="ghost" size="icon" aria-label="Open menu" className="justify-self-start text-inherit hover:bg-transparent hover:text-inherit hover:opacity-60"><Menu strokeWidth={1} /></Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-[85%] overflow-y-auto px-8 pt-14 sm:max-w-[420px]">
-            <SheetTitle><BrandImage src={wordmarkNavy.url} alt="VON MARLOE" className="h-4 w-auto" fallback={<WordmarkText>Von Marloe</WordmarkText>} /></SheetTitle>
+            <SheetTitle><img src={wordmarkNavy} alt="VON MARLOE" className="h-4 w-auto" /></SheetTitle>
             <SheetDescription className="mt-5 text-xs">Los Angeles · From Still Water</SheetDescription>
             <nav className="mt-12 space-y-7" aria-label="Main navigation">
               <Link to="/shop" onClick={() => setOpen(false)} className="flex items-center justify-between text-sm uppercase">Shop All <ArrowUpRight size={16} /></Link>
@@ -42,12 +41,12 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
               </div>
               <Link to="/" onClick={() => setOpen(false)} className="block text-xs text-muted-foreground">From Still Water — The Film</Link>
             </nav>
-            <BrandImage src={swanCream.url} alt="" className="mt-20 h-14 w-auto bg-primary p-2" />
+            <img src={swanCream} alt="" className="mt-20 h-14 w-auto bg-primary p-2" />
             <p className="mt-5 text-xs text-muted-foreground">Chapter 01 · Pre-Launch · Natural Fibers Only</p>
           </SheetContent>
         </Sheet>
         <Link to="/" className="flex justify-center" aria-label="Von Marloe Home">
-          <BrandImage src={wordmark} alt="VON MARLOE" className="h-3 w-auto sm:h-3.5" fallback={<WordmarkText>Von Marloe</WordmarkText>} />
+          <img src={wordmark} alt="VON MARLOE" className="h-3 w-auto sm:h-3.5" />
         </Link>
         <div className="flex items-center justify-end gap-5 text-[11px] uppercase">
           <Link to="/about" className="hidden transition-opacity hover:opacity-60 sm:inline">Journal</Link>
@@ -98,8 +97,8 @@ export function Footer() {
       <div className="mx-auto grid max-w-[1600px] gap-10 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-4 bg-primary p-4 text-primary-foreground"><BrandImage src={swanCream.url} alt="Von Marloe Swan Emblem" className="h-8 w-auto" />
-            <BrandImage src={wordmarkStudiosCream.url} alt="VON MARLOE STUDIOS" className="h-4 w-auto" fallback={<WordmarkText>Von Marloe Studios</WordmarkText>} /></div>
+            <div className="flex items-center gap-4 bg-primary p-4"><img src={swanCream} alt="Von Marloe Swan Emblem" className="h-8 w-auto" />
+            <img src={wordmarkStudiosCream} alt="VON MARLOE STUDIOS" className="h-4 w-auto" /></div>
           </div>
           <p className="mt-6 font-serif text-2xl italic">
             "From Still Water" — The Art of Reinvention
