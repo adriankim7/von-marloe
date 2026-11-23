@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import hero from "@/assets/videos/hero.mp4.asset.json";
 import swanCream from "@/assets/brand/swan-cream.png.asset.json";
 import look1 from "@/assets/look1.jpg";
+import look2 from "@/assets/look2.jpg";
+import { BrandImage } from "@/components/BrandImage";
 import { Header, Footer } from "@/components/SiteChrome";
 import { brandPillars, brandWorlds, eventTraits, founders } from "@/lib/products";
 
@@ -23,11 +25,11 @@ function About() {
   return (
     <div>
       <Header />
-      <section className="relative h-[62vh] min-h-[420px] overflow-hidden">
-        <video src={hero.url} autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-cover" />
+      <section className="relative h-[62vh] min-h-[420px] overflow-hidden bg-primary">
+        <video src={hero.url} poster={look2} autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-overlay" />
         <div className="relative flex h-full flex-col items-center justify-center px-6 text-center text-on-media">
-          <img src={swanCream.url} alt="Von Marloe Swan Emblem" className="mb-4 h-14 w-auto" />
+          <BrandImage src={swanCream.url} alt="Von Marloe Swan Emblem" className="mb-4 h-14 w-auto" />
           <p className="eyebrow">Von Marloe Journal</p>
           <h1 className="mt-3 font-serif text-5xl font-semibold md:text-7xl">From Still Water</h1>
         </div>
